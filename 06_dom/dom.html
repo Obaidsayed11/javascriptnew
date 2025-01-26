@@ -1,0 +1,122 @@
+<!-- This all comes under Document windows.document-->
+
+<!DOCTYPE html>
+<!--Document type : HTML-->
+<html lang="en">
+<!-- from where the pages start-->
+
+<head>
+    <meta charset="UTF-8" />
+
+    <title>DOM Learning</title>
+    <!-- DOM : Document object model-->
+    <style>
+        .bg-black {
+            /* background-color: black; */
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div class="bg-black">
+        <h1 id="title" class="heading">DOM Learning <span> Test Text</span></h1>
+        <h1>Lorem, ipsum.</h1>
+        <h1>Lorem, ipsum.</h1>
+        <h1>Lorem, ipsum.</h1>
+        <p class="para">This is a paragraph</p>
+        <input type="password" name="" id="" />
+        <ul>
+            <li class="list">one</li>
+            <li class="list">two</li>
+            <li class="list">three</li>
+            <li class="list">three</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<!------------------------------------------------------------------All Dom Selectors and node list------------------------------------------------------------------>
+
+<!-- 
+   document.getElementById('title') isse id pata chalta hai uur usko print karta hai
+   document.getElementById('title').id // isse title jo ki id hai agar hum aage .id likhte hai toh yeh print karega 'title'
+   document.getElementById('title').className // isse title jo ki class hai agar hum aage .className likhte hai toh yeh print karega 'heading' hum isse html mai class hi likhte hai but in behid the scenes yeh className hota hai bts mai document usse className potray karta hai
+
+   document.getElementById('title').getAttribute('id') // getAttribute se kisis bhi body ka attriibute access karskte hai jaise ki ismai id use kiye hai
+   document.getElementById('title').getAttribute('class') // getAttribute se kisis bhi body ka attriibute access karsakte hai jaise ki ismai class use kiye hai
+
+   document.getElementById('title').setAttribute('class', 'test') // setAttribute se kisis bhi body ka attriibute set karsakte hai jaise ki ismai class purani class thi bg-black abhi usse override kardiya hai 'test' se
+
+   title.style.backgroundColour = 'green' // isse style change karskte hai pure body ka
+
+   title.innerText  // isse title ke andar jo visible text hai usko dikhata hai
+   title.textContent // isse title ke anda rke text aur woh bhi text jo display:block/none/hidden se ho uslo bhi dikhayega 
+
+   title.innerHTML // isse title ke andar jo html hota hai jaise ki uske andar <h1> tag ya koi bhi tags usko dikhata hai
+
+    -------------------------------- ache query selectors--------------------------------
+
+    document.querySelector('#title') // agar id select karna ho toh
+    document.querySelector('.heading') // agar class select karna ho toh
+    document.querySelector('input[type=password]') // agar type select karna ho toh
+
+    document.querySelectorAll('p:first-child') // agar first child select karna ho toh
+
+
+                const myul = document.querySelector('ul')  // pehle humne ek variable myul banaya hai aur uske andar humne query selector se li tag ka first child select kardiya hai aur usko store karaya hai
+               
+                myul.querySelector('li')   //abh myul ke andar ek child hai li usko query selector se select kiya hai
+                <li>​…​</li>​                 
+                const turnedGreen = document.querySelector('li')  //hum isko bhi ek variable ke andar store karskte hai
+                
+                turnedGreen.style.backgroundColor = 'blue'    //abh hum turnedgreen ko style change karskte  hai
+                'blue'
+
+                turnGreen.innerText = "Five" //iss variable ke andar ke text ko bhi change karskte hai abhi five karediye
+                'Five'
+
+                ////selectorAll
+                document.querySelectorAll('li') //jabh humne console mai dekha ki jabh hum selectorAll off li karey toh saari li batati hai
+                    NodeList(3) [li, li, li]0: li1: li2: lilength: 3[[Prototype]]: NodeList  // yeh ek array jaisi dikh rahi hai but yeh array  hi hai yeh ek nodelist hai
+
+                    const tempLiList = document.querySelectorAll('li')  //is selectorall ko ek varible mai store kiya hai
+                    
+                   
+                    
+                    tempLiList
+                    NodeList(3) [li, li, li]  //templist variable mai stored yeh li ke nodelist
+
+                    const myH1 = document.querySelectorAll('h1') //ismai ek variable ke andar selectorAll use kiya hai usmai page ke saarey h1 ko bulaya hai
+                    
+                   
+                    myH1[1].style.color = "green"  // ismai humne uss variable ke andar [1] from the array jo h1 hai usse call kiya hai aur usse green color diya
+                    'green' //yeh print hua hai 
+
+                    //agr agar hum nodelist logey toh forEach use karte hai kyuki woh ek array nhi hai agar hume map wagera use karna hai toh nodelist ko array mai convert karna haga
+
+
+                    tempLiList.forEach(function(li) {  //isliye humne forEach use kiya hai
+                        li.style.backgroundColor = "green"  // ismai humne uss variable ke andar [1] from the array jo h1 hai usse call kiya hai aur usse green color diya
+                    })  //yeh print hua hai
+
+
+                     document.getElementsByClassName('list') ismai class ko call kiya hai
+HTMLCollection(4) [li.list, li.list, li.list, li.list]  
+const temp = document.getElementsByClassName('list')
+
+Array.from(temp) //isse temp mai jo nodelist stored hai usse array mai convert kardiya hai
+
+const myConvertedArray = Array.from(temp) //uss conerted array ko ismai store kiya hai
+
+myConvertedArray.forEach(function (li){
+    li.style.color = 'orange'                ///abh uss variable ko call karke uske andar ke list ko color siya gaya hai
+})
+
+
+
+
+
+
+-->
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    //events and javascript runs sequentially matlab step by step
+    // kabhi kabhi hum inn seqential ko ignore bhi kate hai jaise asynchrounous programming
+    //browsers events
+    // document.getElementById('owl').onclick = function(){
+    //     alert('You clicked on the owl image'); //ocllick approach acha hai lekin dikhne mai achi nhi hai 
+    //eventlistner use karna chaiye kyuki woh sirf onclick funmctionality hi nhi lekin propagation ki ability detahai
+
+
+    //best approach for now
+    //eventlistner bht saarey events ko listen karskta hai jaise ki drag and  drop click  keyboard events mouse events etc
+
+    // }
+    // document.getElementById('owl').addEventListener('click', function(){
+    //     alert('You clicked on the owl image again ');
+    // })
+
+    // attachEvent -- for internet explorer only
+    //jQuery -- .on() -- for all browsers
+
+    // e event object -- contains information about the event that occurred
+    // e.target -- element that triggered the event
+    // e.preventDefault() -- prevents the default action of the event
+    // e.stopPropagation() -- stops the event from propagating to other elements
+
+    // false ek default hota hai
+
+    // things tio learn about
+    // type = keyboard type events , mouse type events
+    //timesptamp =  time date activities kaise change kartey hai wahi sabh
+    // defaultPrevented = yeh action ke event ko prevent karta hai ki bina action karey hona jaaye
+    // target = element that triggered the event
+    //toElement = element that triggered the event
+    //currentTarget
+    //srcElement
+    // clientX , clientY , screenX , screenY = client aur screen ki position related client ka x kya hai client ka y kya hai
+    //altkeys , shiftkeys , ctrlkeys = key press related keys
+
+
+    //keycode = key press related key code ( jo typing speed test project mai kaam aaskta hai)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //         alert('You clicked on the owl image again ');
+    //     }, false)
+
+
+    // iss case mai yeh hoga ki agar hum dure kisi bhi images mai click karege toh you clickied inside the ul ko print karega
+    // agar hum phir owl ko click karege toh you clicked on the owl image ko print karega uske baad you clickied inside the ul yeh hoga isko bolte hai bubbling up jaise buble niche se upar jaata hai wasie yeh bhi pehli li phir uske ul ko karege yeh ek event propogation ka concept hai
+    // yeh bubbling up jabh hoga jab apna event default value yaani ke false hoga ya phir humne false likha hai
+    //actually default value bina likhe bhi false hota hai
+    // agar hum true likhege toh capturing hoga capturing jaata hai top se bottom pe 
+    // document.getElementById('images').addEventListener('click', function(e){
+    //         alert('You clicked inside the ul');
+    //     }, false)
+
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //         alert('owl clicked');
+    //         e.stopPropagation(); // agar hum chhte hai ki outer element alag hogae yeh alag koi bubling na hon toh e.stopPropagation() use karna padega yeh ek method hota hai ismai event buble hokar upar nhi jayega
+    //     }, false) // agar hum true likhege toh capturing use hoga from top to bottom pehle alert('You clicked inside the ul'); yeh print hoga then alert('owl clicked'); yeh print hoga
+
+
+    //     document.getElementById('google').addEventListener('click', function(e){
+    //         console.log('google clicked');
+
+    //         e.preventDefault(); // yeh ek event hota hai ki yeh default action of the event ko prevent karega
+    //     }, false)
+
+
+
+    // document.querySelector('#images').addEventListener('click', function(e){
+    // console.log(e.target.parentNode); //e.target se target kya hai woh dikhata hai jaise ki image pe click kiye woh image konsi hai waisi aur e.target.parentNode se target ka parent node kya hai woh dikhata hai jaise ki li hai image ka parent node 
+
+    // let removeIt =  e.target.parentNode;
+    // removeIt.remove(); // remove ek method hai jo remove karta hai
+    // // removeIt.parentNode.removeChild(removeIt); // yeh bhi ek tareeka hai ki parentNode se kaho apne child ko remove karna hai
+
+    // }, false)
+
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName); //e.target se target kya hai woh dikhata hai jaise ki image pe click kiye woh image konsi hai waisi aur e.target.parentNode se target ka parent node kya hai woh dikhata hai jaise ki li hai image ka parent node 
+
+        
+        if (e.target.tagName === 'IMG') {
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+
+
+
+    }, false)
+
+</script>
+
+
+</html>

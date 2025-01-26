@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #ffff">
+    
+</body>
+<script>
+   const div = document.createElement('div') //createElement isse ek element create hota hai div/h1 etc
+   console.log(div);
+   div.className = 'main';
+   div.id = Math.round(Math.random()* 10 +1)
+   console.log(div.id);
+   
+   div.setAttribute('title','generate a title') // set Attribute mai key value pair type jaati hai jaise ki title mai kya text something like that 
+   //yeh ek sahi tareeka bhi hain kyuki yeh direct set karta hai baaki div.id wagera waha pehle ek round leta hai phir dhundkar id mai set karta hai 
+   div.style.backgroundColor = 'red';
+   div.style.padding = '10px';
+   //yeh sab page pe nhi dikhega kyuki yeh sabh ekl memory mai store hai
+//    div.innerText = "This is a div"
+const addText = document.createTextNode('This is a div') //createTextNode isse text node create karta hai jaise ki innerText se acha approach hai as we discussed ki div.addText pure bosy mai dhundar banayega aur createTextNode direct text node banayega
+div.appendChild(addText) //appendChild isse text node ko div mai append karta hai attach kardiye add text ko div mai
+document.body.appendChild(div) //abh woh div ko hum body mai attach karege append karege
+
+
+   
+
+   
+</script>
+</html>

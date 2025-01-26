@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style ="background-color: #212121; color: azure;" >
+    <h1>Document</h1>
+    <button id = "stop">stop</button>
+</body>
+<script>
+    // setTimeout ek method hai ismai woh ek time mangta hai ki itne time ke baad woh kaam karega jaise niche example mai usne ek function ka console run kiya after 2 sec aur yeh baar baar nhi karega
+
+const sayHello = function(){
+        console.log("hello");
+        // alert("hello");
+    }
+
+    const changeText = function (){
+        document.querySelector('h1').innerHTML = "hello obaid sayed"
+    }
+
+    const changeMe = setTimeout(changeText, 2000);
+
+    // setTimeout(sayHello, 2000); // phir ismai reference lege execute thodi karna hai
+        //setInterval bar bar karta hai 
+
+        document.querySelector('#stop').addEventListener('click',function(){
+            clearTimeout(changeMe)
+            console.log("stoped");
+            
+        })
+    
+</script>
+</html>

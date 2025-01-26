@@ -1,0 +1,54 @@
+file structure to study along
+
+
+01_basics
+1. variable.js
+2. datatypes.js
+3. conversationsoperations.js
+4. comparisons.js
+5. strings.js
+6. nums.js
+7. dates.js
+
+02_basics
+8. arrays.js
+9. objects.js
+
+03_basics
+10. functions.js
+11. scopes.js
+12. arrow.js
+13. iffe.js
+
+04_controlflow
+14. jscalls.js
+15. controlflow.js
+16. switch.js
+17. truthy.js
+
+05_iterations
+18. forloop.js
+19. whileloop.js
+20. forofloop.js
+21. foreachloop.js
+22. mapreduce.js
+23. chaining.js
+
+06_dom
+24. dom.html
+25. diagram.txt
+26. dom2.html
+27. dom3.html
+28. dom4.html
+
+07_projects
+
+08_event
+29. event01.html
+
+09_async
+10. async.drawio
+
+
+
+

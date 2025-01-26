@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | 2</title>
+</head>
+<body style="background-color: #212121; color: #ffff">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+   const parent = document.querySelector('.parent') //ismai class select kiye hai
+//    console.log(parent.children); // parent ke andar children select kiye
+//    console.log(parent.children[1]); // parent ke andar 1st child select kiye
+//    console.log(parent.children[1].innerHTML); // parent ke andar 1st child ke andar jo html hota hai usko dikhata hai
+
+//    for (let i = 0; i < parent.children.length; i++) {
+//     console.log(parent.children[i].innerHTML,"fefef");  //for loop for parent ke children print karne ke liye uske lenght tak 
+    
+    
+//    }
+//    parent.children[1].style.color = 'red';
+//    console.log(parent);
+   
+//    console.log(parent.innerElementChild,"innerElementChild"); 
+
+   const day1 = document.querySelector('.day');
+   console.log(day1);
+   console.log(day1.parentElement,"parentElement");
+   //dociment object model ek tree structure mai hota hai
+   console.log("NODE", parent.childNodes);
+   //nodes mai jo print hota hai usmai spaces bhi as a text node count hota hai ek entter ke baad browser baaki enters ko render nhi karta
+   
+   
+</script>
+</html>

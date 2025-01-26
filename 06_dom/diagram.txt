@@ -1,0 +1,19 @@
+                                                                    window
+                                                                    |
+                                                                    document
+                                                                    |
+                                                                    html     
+                                                                    |
+                                                           --------------------------- 
+                                                           /                         \
+                                                           head                    body------------------------------------------
+                                                           |                                                                    |
+                                                    title |  meta                                                              div
+                                                      |        \                                                                | 
+                                                text node      attribiute                                                     attribute (class)
+                                                                                                                                /        \
+                                                                                                                               /          \
+(document object model mai harr chiz                                                                                         <h1>           <p>
+ho nodel bola jaata hai text node matlab                                                                                    /  |             | 
+text value)                                                                                             attribute(id,class)  text node      text node
+                                                         
