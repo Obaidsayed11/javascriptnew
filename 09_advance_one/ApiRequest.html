@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 40%;
+    }
+    
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
+    .container {
+      padding: 2px 16px;
+    }
+    </style>
+<body >
+   
+    <div> 0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+</div>
+    
+<h2>Card</h2>
+
+<div class="card">
+  <img src="" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>John Doe</b></h4> 
+    <p></p> 
+  </div>
+</div>
+</body>
+<script>
+    // yeh ek ready made method hai jisse saarey ready states hote hai aur issi ke through aap apna data request send karskte ho aur recieve karskte ho yeh ek class hai use object banana padhta hai
+const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+ const xhr = new XMLHttpRequest(); //pehle xml request ko variable mai store kiye hai
+ xhr.open('GET', requestUrl)  // abh isey open kiye hai get method se
+
+ //continously track karne ke liye xhr aapko bolta hai ki app state change karlo onreadystatechange yeh continously cheezo ko monitor karti hai
+ 
+//onreadystatechange issey baar baar function call hoga aur phirse callback hoga aur baar baar stae change hoga
+xhr.onreadystatechange = function (){
+ console.log(xhr.readyState)
+ if (xhr.readyState === 4){
+
+  // yeh responseText yeh ek XMLHttp request se data dikhane ke liye hota hai this matlab iss function ya api ke context mai
+  const data = JSON.parse(this.responseText ) // mostly data hume string mai hi milta hai toh hume use JSON object mai convert karna hota hai isliye JSON.parse method se karege
+  console.log( typeof data)
+
+console.log(data.followers)
+
+document.querySelector('p').innerHTML = data.followers
+document.querySelector('img').innerHTML = data.followers
+
+ }
+}
+
+// console.log(xhr.readyState); //iska ready state abhi 1 hai
+ xhr.send();  // abhi isey send kiya hai open ko call karna hoga na isliye
+
+
+
+
+
+
+ //console.log actually core js ka part nhi hai woh ek browser ka debugging tool h dev tol woh actually runtime mai inject karta hai 
+</script>
+</html>
