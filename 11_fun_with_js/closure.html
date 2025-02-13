@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body style="background-color: #313131">
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+  </body>
+  <script>
+    //-------- yeh lexical ka example tha ismai humne yeh sikha ki parent se child function uske variables access karskte hai par children se parent nhi leskte aur children function children se nhi leskte
+    /*function outer(){
+        let name = "obaid"
+        function inner(){
+            console.log("inner", name)
+        }
+        function innerTwo(){
+            console.log("inner", name)
+        }
+        inner()
+        innerTwo()
+    }
+    outer()
+    console.log("outer", name) */
+
+    // abh ismai yeh hoga na outer function ek parent function hai toh uske variable ka access saarey inner functions ko hoga
+
+    // closure
+
+    // iss example mai dekhte hai ki ek function hai uske and name phir ek function usmai consoled name woh function khayam hone ke baad usey return kiya gaya toh uss return mai uss function ke andar jo bhi params return karna hoga woh toh hoga hi magar uska sirf scope hi nhi pura lexical scope return hoga jo ki agar parent ka hai toh woh bhi hoga
+
+    /*function makeFunc(){
+        let name = "obaid"
+        function displayName(){
+            console.log(name)
+        }
+        return displayName()
+    }
+    const myFunc = makeFunc();
+    myFunc();*/
+   
+    /* document.getElementById("orange").addEventListener("click", function () {
+      console.log("orange button clicked");
+      document.body.style.backgroundColor = "orange";
+    });
+
+    document.getElementById("green").onclick = function () {
+      console.log("green button clicked");
+      document.body.style.backgroundColor = "green";
+    }; */
+
+    function clickHandler(color){
+        //document.body.style.backgroundColor = `${color}`
+        return function(){
+             document.body.style.backgroundColor = `${color}`
+        }
+        
+
+    }
+
+    document.getElementById('orange').onclick = clickHandler('orange')
+    document.getElementById('green').onclick = clickHandler('green')
+    
+
+    
+  </script>
+</html>

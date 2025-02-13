@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>react</title>
+</head>
+<body>
+    
+    <button>Button Clicked</button>
+</body>
+<script>
+    // ismaoi hume yeh requirement hai ki button clicked pe hume log karwana hai button clicked aur constructor function ke properties bhi dikhana hai
+    class React {     //toh ek class banayege hum React se 
+        constructor() {
+            this.library = "React"   // yeh do properties hai
+            this.server = "https://localhost:3000"
+
+            //requirement
+            document.querySelector('button').addEventListener('click', this.handleClick.bind(this)) 
+            // abh ek button lege queryselector se uspe event lagayege onclick la usmai handleClick lennge as we know jabh humne iss context mai this ko console kiya tha toh this mai button that toh hum button yaha this ko refer karega isliye this.handleclick
+            // aur hume agar handle click mai this.server ko bhi console karna hai toh hume this ko bind karna hoga
+
+        }
+        handleClick(){
+            console.log("Button Clicked")
+            console.log(this.server)
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
+
